@@ -24,6 +24,7 @@ const Navbar = () => {
         <div className="navbar-content">
           <Link to="/" className="navbar-logo">Velora</Link>
 
+          {/* Desktop Navigation */}
           <div className="navbar-nav md:flex">
             {navItems.map(item => (
               <Link
@@ -36,15 +37,17 @@ const Navbar = () => {
             ))}
           </div>
 
+          {/* Desktop Actions */}
           <div className="navbar-actions md:flex">
             <button className="navbar-icon-btn"><Search size={20} /></button>
-            <button className="navbar-icon-btn"><User size={20} /></button>
+            <Link to="/signup" className="navbar-icon-btn"><User size={20} /></Link>
             <Link to="/cart" className="navbar-cart-btn">
               <ShoppingBag size={20} />
               {cartItemsCount > 0 && <span className="navbar-cart-badge">{cartItemsCount}</span>}
             </Link>
           </div>
 
+          {/* Mobile */}
           <div className="navbar-mobile md:hidden">
             <Link to="/cart" className="navbar-cart-btn">
               <ShoppingBag size={20} />
@@ -59,6 +62,7 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="navbar-mobile-menu md:hidden">
             <div className="navbar-mobile-nav">
@@ -74,7 +78,7 @@ const Navbar = () => {
               ))}
               <div className="navbar-mobile-actions">
                 <button className="navbar-icon-btn"><Search size={20} /></button>
-                <button className="navbar-icon-btn"><User size={20} /></button>
+                <Link to="/signup" className="navbar-icon-btn"><User size={20} /></Link>
               </div>
             </div>
           </div>
